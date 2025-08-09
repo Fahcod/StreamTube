@@ -1,0 +1,6 @@
+
+# the files and folders to exclude from the backend directory
+.env 
+venv
+
+__pycache__/
