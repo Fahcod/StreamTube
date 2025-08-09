@@ -7,13 +7,9 @@ from routes.file_route import file_router
 from routes.post_route import post_router
 from routes.comment_route import comment_router
 from middleware.middleware import register_middleware
-from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(version=VERSION,description="The API for video streaming app")
-
-# mount the static files folder
-app.mount("/static",StaticFiles(directory="static"),"static")
 
 # register the app middleware
 register_middleware(app)
