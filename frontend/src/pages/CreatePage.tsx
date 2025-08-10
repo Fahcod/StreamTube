@@ -213,11 +213,15 @@ const VideoUploadForm = () =>{
         <option value="Space explorationn">Space</option>
         <option value="News">News</option>
         <option value="Islam">Islam</option>
+        <option value="Kids">Kids</option>
+        <option value="Lifestyle">Lifestyle</option>
+        <option value="Health">Health</option>
+        <option value="Sports">Sports</option>
         </select>
         </div>
         {/* the button */}
         <button className="cursor-pointer font-[roboto-light] px-4 py-2 bg-blue-500 text-white rounded-md">Edit video</button>
-         <button disabled={isUploading?true:false} onClick={()=>uploadVideo()} className="cursor-pointer font-[roboto-light] px-4 py-2 bg-red-500 text-white rounded-md">Upload video</button>
+         <button disabled={isUploading?true:false} onClick={()=>uploadVideo()} className={`cursor-pointer font-[roboto-light] px-4 py-2 ${isUploading?'bg-red-400':'bg-red-500'} text-white rounded-md`}>Upload video</button>
         </div>
         </div>
         </div>
