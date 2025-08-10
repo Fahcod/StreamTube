@@ -74,7 +74,7 @@ def signup_user(data:SignupUserModel):
         # the response
         response = JSONResponse(status_code=201,content=content)
         # set the response cookie
-        response.set_cookie(key='auth',value=token,httponly=True,samesite=None,secure=True,max_age=1000 * 60 * 60 *24 * 30)
+        response.set_cookie(key='auth',value=token,httponly=True,samesite='none',secure=True,max_age=1000 * 60 * 60 *24 * 30)
         # return the response
         return response
 
@@ -119,7 +119,7 @@ def login_user(data:LoginUserModel):
     # the response
     response = JSONResponse(status_code=200,content=content)
     # set the response cookie
-    response.set_cookie(key='auth',value=token,httponly=True,samesite=None,secure=True,max_age=1000 * 60 * 60 *24 * 30)
+    response.set_cookie(key='auth',value=token,httponly=True,samesite='none',secure=True,max_age=1000 * 60 * 60 *24 * 30)
     # return the response
     return response
 
