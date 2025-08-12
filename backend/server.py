@@ -8,12 +8,15 @@ from routes.post_route import post_router
 from routes.comment_route import comment_router
 from middleware.middleware import register_middleware
 from fastapi.middleware.cors import CORSMiddleware
+# from fastapi.staticfiles import StaticFiles
 
 app = FastAPI(version=VERSION,description="The API for video streaming app")
 
+# app.mount('/static',StaticFiles(directory='static'),name="static")
+
 # register the app middleware
 register_middleware(app)
-
+# https://streamtube-app.onrender.com
 app.add_middleware(
     CORSMiddleware,
     allow_origins = ["https://streamtube-app.onrender.com"],

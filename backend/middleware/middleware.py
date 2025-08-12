@@ -1,7 +1,14 @@
 from fastapi import FastAPI,HTTPException
 from fastapi.requests import Request
 from lib.version import VERSION
+from jose import jwt
+import os
+from dotenv import load_dotenv
 
+# load the env variables
+load_dotenv()
+ALGORITHM = os.getenv('ALGORITHM')
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 def register_middleware(app:FastAPI):
     @app.middleware('http')
@@ -24,12 +31,20 @@ def register_middleware(app:FastAPI):
             # if the token does not exist,raise an error
             if (not token):
                 raise HTTPException(status_code=401,detail="You are not logged in")
-                # if token exists, return the response
+                # if token exists try to decode it and if successful, return the response
             else:
-                return response
+                #try to decode the token
+                try:
+                    payload = jwt.decode(token=token,key=SECRET_KEY,algorithms=[ALGORITHM])
+                    user_id:str = payload.get("user_id")
+                    if(user_id):
+                        return response
+                except Exception as e:
+                    print(e)
+                    raise HTTPException(status_code=401,detail="You are not logged in")
+                    
         else:
             # if the user is just signing up or on the '/' path,just foward the request
-            # the response
             return response
             
 
