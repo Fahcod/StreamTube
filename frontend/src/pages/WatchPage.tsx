@@ -124,9 +124,11 @@ const WatchPage = () => {
     </div>
     </div>
     {/* the video descripttion */}
-    <div className="md:w-full m-[96%] mt-3 bg-[#efefef] dark:bg-[#333] p-3 rounded-md">
+    <div className="w-full md:px-0 px-2">
+    <div className="md:mt-5 mt-3 bg-[#efefef] dark:bg-[#333] p-3 rounded-md">
     <h1 className="font-[roboto-bold] dark:text-white">{activePost?.title}</h1>
     <p className="font-[roboto-light] dark:text-[#fff] text-sm">{activePost?.description.slice(0,200)}...more</p>
+    </div>
     </div>
     {/* the post comments */}
     <div className="w-full hidden pt-3">

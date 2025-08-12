@@ -21,7 +21,7 @@ const VideoPost = (props:VideoPostModel) => {
     </Link>
     {/* the video details */}
     <div className="">
-    <h2 className="font-[roboto-bold] dark:text-white md:block hidden leading-none text-[#101010]">{props.title.slice(0,55)}{props.title.length > 55?'...':''}</h2>
+    <h2 className="font-[roboto-bold] dark:text-white md:block hidden leading-5 text-[#101010]">{props.title.slice(0,55)}{props.title.length > 55?'...':''}</h2>
     {/* the title for mobile */}
     <h2 className="font-[roboto-bold] dark:text-white text-sm md:hidden leading-none text-[#101010]">{props.title.slice(0,28)}{props.title.length > 28?'...':''}</h2>
     <p className="pt-1 leading-none text-sm dark:text-[#a7a7a7] text-[#101010] font-[rubik-light]">{props.owner.username}</p>
@@ -32,4 +32,4 @@ const VideoPost = (props:VideoPostModel) => {
   )
 }
 
-export default VideoPost
+export default VideoPost;

@@ -57,12 +57,12 @@ const SavedVideos = () => {
      {/* the header */}
     <div className="p-2 flex w-full justify-between">
     <div className="">
-    <h1 className="font-[roboto-black] text-lg md:text-2xl">Saved videos</h1>
+    <h1 className="font-[roboto-black] dark:text-white text-lg md:text-2xl">Saved videos</h1>
     {/* the ctegories */}
     <div className="flex items-center gap-6 pt-4">
     {categories.map((item,index)=>{
         return(
-        <div onClick={()=>setActiveCategory(item.value)} className={`rounded-full text-sm md:text-[16px] cursor-pointer py-1.5 px-6 flex items-center ${item.value === activeCategory?'text-white bg-[#fb2c36]':'border-gray-200'} border-solid border-[1px]`} key={index}>
+        <div onClick={()=>setActiveCategory(item.value)} className={`rounded-full text-sm md:text-[16px] cursor-pointer py-1.5 px-6 flex items-center ${item.value === activeCategory?'text-white bg-[#fb2c36] dark:border-red-500':'border-gray-200 dark:border-[#333]'} dark:text-white border-solid border-[1px]`} key={index}>
         <p className="font-[rubik-light]">{item.value}</p>
         </div>
         )

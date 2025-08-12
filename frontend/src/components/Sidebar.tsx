@@ -12,7 +12,7 @@ const Sidebar = () => {
     {/* the links */}
     <div className="w-full flex flex-col gap-6 pt-4">
     
-    <Link to="/">
+    <Link to="/home">
     <div className="flex text-[#202020] dark:text-[#eeecec] items-center gap-3 cursor-pointer">
     <BiHome className="w-6.5 h-6.5"/>
     <p className="text-[17px] font-[Arial] pt-0.5">Home</p>

@@ -29,7 +29,7 @@ const Navbar = () => {
   const {textSearchTerm,setTextSearchTerm} = useContext<any>(AppContext);
 
   return (
-    <div className="w-full dark:bg-[#101010] hidden md:flex sticky top-0 bg-white px-6 items-center justify-between z-[200] h-[60px] border-solid border-b-[1px] dark:border-[#333] border-gray-100">
+    <div className="w-full dark:bg-[#101010] hidden md:flex sticky top-0 bg-white px-6 items-center justify-between z-[200] h-[60px] border-solid border-b-[1px] dark:border-[#222] border-gray-100">
    {/* the app logo */}
    <div>
     <h1 className="font-[roboto-black] text-2xl text-[#101010] dark:text-white">Stream<span className="text-red-500">Tube</span></h1>

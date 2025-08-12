@@ -51,7 +51,7 @@ const ReelUploadForm = () =>{
   // upload the video first
   fileData.append("file",videoURL);
 
-  let responseOne = await axiosInstance.post('/api/v1/files/upload-video',fileData);
+  let responseOne = await axiosInstance.post('/api/v1/files/upload',fileData);
   if(responseOne.status === 201){
     // upload the post data now
     const dataObject = {
@@ -77,7 +77,7 @@ const ReelUploadForm = () =>{
   }
 
     return (
-        <div className="w-[90%] rounded-md h-[380px] flex p-5 gap-5 mt-8 border-solid border-[1px] border-gray-200">
+        <div className="w-[90%] rounded-md h-[380px] flex p-5 gap-5 mt-8 border-solid border-[1px] dark:border-[#333] border-gray-200">
         {/* the video upload space */}
         <div className="w-[50%]">
         <input type="file" id="video" onChange={(e:any)=>setVideoURL(e.target.files[0])} hidden/>
@@ -87,7 +87,7 @@ const ReelUploadForm = () =>{
         </div>
         :
         <label htmlFor="video">
-        <div className="w-full cursor-pointer flex items-center justify-center flex-col h-full bg-[#e9e6e6]">
+        <div className="w-full cursor-pointer dark:bg-[#333] flex items-center justify-center flex-col h-full bg-[#e9e6e6]">
         <div className="flex flex-col items-center gap-2">
         <BiSolidVideos className="w-11 text-[#888] h-11"/>
         <h1 className="font-[roboto-bold] text-[#888]">Click to select a reel</h1>
@@ -97,13 +97,13 @@ const ReelUploadForm = () =>{
         }
         </div>
         <div className="w-[50%]">
-        <textarea onChange={handleChange} value={postData.description} name="description" className="h-[180px] outline-none w-full rounded-md p-3 border-solid border-[1px] border-gray-200" placeholder="Type your video description here..."></textarea>
-        <input onChange={handleChange} name="title" value={postData.title} type="text" className="mt-3 border-solid rounded-md border-[1px] border-gray-200 p-2 w-full outline-none" placeholder="Type your video title here..."/>
+        <textarea onChange={handleChange} value={postData.description} name="description" className="dark:border-[#333] dark:text-white h-[180px] outline-none w-full rounded-md p-3 border-solid border-[1px] border-gray-200" placeholder="Type your video description here..."></textarea>
+        <input onChange={handleChange} name="title" value={postData.title} type="text" className="dark:border-[#333] dark:text-white mt-3 border-solid rounded-md border-[1px] border-gray-200 p-2 w-full outline-none" placeholder="Type your video title here..."/>
         {/* the fields for the post category */}
         <div className="w-full pt-5 grid grid-cols-3 gap-6 items-center">
         <div className="w-full">
         {/* <p className="font-[rubik-light]">Post category</p> */}
-        <select onChange={handleChange} value={postData.category} name="category" className="mt-2 outline-none border-solid rounded-md border-[1px] border-gray-200 p-2">
+        <select onChange={handleChange} value={postData.category} name="category" className="dark:border-[#333] dark:text-white mt-2 outline-none border-solid rounded-md border-[1px] border-gray-200 p-2">
         <option value="Category">Category</option>
         <option value="Technology">Technology</option>
         <option value="Farming">Farming</option>
@@ -152,7 +152,7 @@ const VideoUploadForm = () =>{
   // upload the video first
   fileData.append("file",videoURL);
 
-  let responseOne = await axiosInstance.post('/api/v1/files/upload-video',fileData);
+  let responseOne = await axiosInstance.post('/api/v1/files/upload',fileData);
   if(responseOne.status === 201){
     // upload the post data now
     const dataObject = {
@@ -178,7 +178,7 @@ const VideoUploadForm = () =>{
   }
 
     return (
-        <div className="w-[90%] rounded-md h-[380px] flex p-5 gap-5 mt-8 border-solid border-[1px] border-gray-200">
+        <div className="w-[90%] rounded-md h-[380px] flex p-5 gap-5 mt-8 border-solid border-[1px] dark:border-[#333] border-gray-200">
         {/* the video upload space */}
         <div className="w-[50%]">
         <input type="file" id="video" onChange={(e:any)=>setVideoURL(e.target.files[0])} hidden/>
@@ -188,7 +188,7 @@ const VideoUploadForm = () =>{
         </div>
         :
         <label htmlFor="video">
-        <div className="w-full cursor-pointer flex items-center justify-center flex-col h-full bg-[#e9e6e6]">
+        <div className="w-full dark:bg-[#333] cursor-pointer flex items-center justify-center flex-col h-full bg-[#e9e6e6]">
         <div className="flex flex-col items-center gap-2">
         <BiSolidVideos className="w-11 text-[#888] h-11"/>
         <h1 className="font-[roboto-bold] text-[#888]">Click to select a video</h1>
@@ -198,13 +198,13 @@ const VideoUploadForm = () =>{
         }
         </div>
         <div className="w-[50%]">
-        <textarea onChange={handleChange} value={postData.description} name="description" className="h-[180px] outline-none w-full rounded-md p-3 border-solid border-[1px] border-gray-200" placeholder="Type your video description here..."></textarea>
-        <input onChange={handleChange} name="title" value={postData.title} type="text" className="mt-3 border-solid rounded-md border-[1px] border-gray-200 p-2 w-full outline-none" placeholder="Type your video title here..."/>
+        <textarea onChange={handleChange} value={postData.description} name="description" className="dark:border-[#333] dark:text-white h-[180px] outline-none w-full rounded-md p-3 border-solid border-[1px] border-gray-200" placeholder="Type your video description here..."></textarea>
+        <input onChange={handleChange} name="title" value={postData.title} type="text" className="dark:border-[#333] dark:text-white mt-3 border-solid rounded-md border-[1px] border-gray-200 p-2 w-full outline-none" placeholder="Type your video title here..."/>
         {/* the fields for the post category */}
         <div className="w-full pt-5 grid grid-cols-3 gap-6 items-center">
         <div className="w-full">
         {/* <p className="font-[rubik-light]">Post category</p> */}
-        <select onChange={handleChange} value={postData.category} name="category" className="mt-2 outline-none border-solid rounded-md border-[1px] border-gray-200 p-2">
+        <select onChange={handleChange} value={postData.category} name="category" className="dark:border-[#333] dark:text-white mt-2 outline-none border-solid rounded-md border-[1px] border-gray-200 p-2">
         <option value="Category">Category</option>
         <option value="Technology">Technology</option>
         <option value="Farming">Farming</option>
@@ -250,38 +250,38 @@ const CreatePage = () => {
     </div>
     {/* the user details */}
     <div className="">
-    <h1 className="font-[roboto-bold] text-2xl">{userData?.fullname}</h1>
-    <p className="font-[roboto-light]">@{userData?.username}</p>
-    <p>26 videos</p>
-    <p>{userData?.followers.length} followers | {userData?.following.length} following</p>
+    <h1 className="font-[roboto-bold] dark:text-white text-2xl">{userData?.fullname}</h1>
+    <p className="font-[roboto-light] dark:text-[#999]">@{userData?.username}</p>
+    <p className="dark:text-[#fff]">26 videos</p>
+    <p className="dark:text-[#999]">{userData?.followers.length} followers | {userData?.following.length} following</p>
     {/* the buttons */}
      <div className="flex items-center gap-4">
      <button className="py-2 px-5 cursor-pointer rounded-full bg-red-500 mt-3 font-[rubik-light] text-white">Edit profile info</button>
-     <button className="py-2 px-5 cursor-pointer rounded-full bg-[#cccccc] mt-3 font-[rubik-light] text[#454545]">Manage videos</button>
+     <button className="py-2 px-5 cursor-pointer rounded-full bg-[#cccccc] dark:bg-[#333] dark:text-white mt-3 font-[rubik-light] text[#454545]">Manage videos</button>
      </div>
     </div>
     </div>
     <div className="pt-6 flex items-center">
-    <h1 className="font-[roboto-bold] text-xl">Create a post</h1>
+    <h1 className="font-[roboto-bold] dark:text-white text-xl">Create a post</h1>
     <div className="flex items-center gap-6 pl-11">
     {/* the post option */}
-     <div onClick={()=>setPostCategory("Video")} className="cursor-pointer bg-[#e2e1e1] py-1 px-3 rounded-md gap-2 flex items-center">
+     <div onClick={()=>setPostCategory("Video")} className="dark:bg-[#333] cursor-pointer bg-[#e2e1e1] py-1 px-3 rounded-md gap-2 flex items-center">
     <BiSolidVideos className="w-5 h-5 text-red-500"/>
-     <p className="font-[roboto-light]">Video</p>
+     <p className="font-[roboto-light] dark:text-white">Video</p>
      </div>
       {/* the post option */}
-     <div onClick={()=>setPostCategory("Reel")} className="cursor-pointer bg-[#e2e1e1] py-1 px-3 rounded-md gap-2 flex items-center">
+     <div onClick={()=>setPostCategory("Reel")} className="dark:bg-[#333] cursor-pointer bg-[#e2e1e1] py-1 px-3 rounded-md gap-2 flex items-center">
     <BiSolidVideos className="w-5 h-5 text-green-500"/>
-     <p className="font-[roboto-light]">Reel</p>
+     <p className="font-[roboto-light] dark:text-white">Reel</p>
      </div>
       {/* the post option */}
-     <div className="cursor-pointer bg-[#e2e1e1] py-1 px-3 rounded-md gap-2 flex items-center">
+     <div className="cursor-pointer dark:bg-[#333] bg-[#e2e1e1] py-1 px-3 rounded-md gap-2 flex items-center">
     <FaTextWidth className="w-5 h-5 text-blue-500"/>
-     <p className="font-[roboto-light]">Text</p>
+     <p className="font-[roboto-light] dark:text-white">Text</p>
      </div>
     </div>
     </div>
-    <hr className="mt-2 bg-gray-200 outline-none border-none h-[1px]"/>
+    <hr className="mt-2 bg-gray-200 dark:bg-[#333] outline-none border-none h-[1px]"/>
     {/* the post upload forms */}
     <div className="w-full flex flex-col items-center">
     {postCtaegory==="Video"?<VideoUploadForm/>:<ReelUploadForm/>}

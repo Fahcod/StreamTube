@@ -7,7 +7,7 @@ const BottomNav = () => {
   return (
     <div className="w-full flex dark:bg-[#101010] px-2 items-center justify-between md:hidden bg-white fixed bottom-0 h-[60px] border-solid border-t-[1px] dark:border-[#333] border-gray-200">
     
-    <Link to="/">
+    <Link to="/home">
     <div className="flex flex-col items-center gap-0.5">
     <FaHouse className="w-6.5 h-6.5 text-red-500"/>
     <p className="font-[roboto-light] text-xs text-red-500">Home</p>
@@ -20,7 +20,8 @@ const BottomNav = () => {
     </div>
 
     <div className="flex flex-col items-center gap-0.5">
-    <BiPlusCircle className="w-8 h-8 text-[#333232] dark:text-[#e9e9e9]"/>
+    <BiPlusCircle className="w-7 h-7 text-[#333232] dark:text-[#e9e9e9]"/>
+    <p className="font-[roboto-light] text-[#101010] dark:text-[#e9e9e9] text-xs">Create</p>
     </div>
 
     <Link to="/watched">

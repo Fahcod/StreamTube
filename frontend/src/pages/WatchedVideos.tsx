@@ -115,12 +115,12 @@ const WatchedVideos = () => {
      {/* the header */}
     <div className="flex w-full justify-between">
     <div className="">
-    <h1 className="font-[roboto-black] text-lg md:text-2xl">Watched videos</h1>
+    <h1 className="font-[roboto-black] dark:text-white text-lg md:text-2xl">Watched videos</h1>
     {/* the ctegories */}
     <div className="flex items-center gap-6 pt-4">
     {categories.map((item,index)=>{
         return(
-        <div onClick={()=>setActiveCategory(item.value)} className={`rounded-full cursor-pointer py-1.5 px-6 flex md:text-[16px] text-sm items-center ${item.value === activeCategory?'text-white bg-[#fb2c36]':'border-gray-200'} border-solid border-[1px]`} key={index}>
+        <div onClick={()=>setActiveCategory(item.value)} className={`rounded-full cursor-pointer py-1.5 px-6 flex md:text-[16px] text-sm items-center ${item.value === activeCategory?'text-white bg-[#fb2c36] dark:border-red-500':'border-gray-200 dark:border-[#333]'} dark:text-white border-solid border-[1px]`} key={index}>
         <p className="font-[roboto-light]">{item.value}</p>
         </div>
         )
@@ -129,7 +129,7 @@ const WatchedVideos = () => {
     </div>
     {/* the options */}
     <div>
-    <BiDotsVerticalRounded className="w-6 h-6 md:w-7 md:h-7 cursor-pointer"/>
+    <BiDotsVerticalRounded className="dark:text-white w-6 h-6 md:w-7 md:h-7 cursor-pointer"/>
     </div>
     </div>
     {/* the videos */}

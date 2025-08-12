@@ -43,11 +43,11 @@ const SearchResults = () => {
     <div className="w-full ml-[326px]">
     {/* the header */}
     <div className="">
-    <h1 className="font-[roboto-bold] pt-5">Showing results for "{searchTerm}"</h1>
+    <h1 className="font-[roboto-bold] dark:text-white pt-5">Showing results for "{searchTerm}"</h1>
     </div>
     <div className="flex mt-3 items-center gap-5">
-    <button className="cursor-pointer border-solid border-[1px] border-gray-200 bg-red-500 text-white px-6 rounded-full py-2">Videos</button>
-    <button className="cursor-pointer border-solid border-[1px] border-gray-200 px-6 rounded-full py-2">Shorts</button>
+    <button className="cursor-pointer border-solid border-[1px] dark:border-red-500 border-gray-200 bg-red-500 text-white px-6 rounded-full py-2">Videos</button>
+    <button className="cursor-pointer border-solid dark:text-white border-[1px] dark:border-[#333] border-gray-200 px-6 rounded-full py-2">Shorts</button>
     </div>
     {/* the videos container */}
     <div className="w-full flex pt-5 flex-col-reverse gap-6 pb-11">
@@ -59,9 +59,9 @@ const SearchResults = () => {
                 <video src={item.video_url} onClick={()=>navigate(`/watch/${item._id}`)} className="w-[350px] rounded-md"/>
                 {/* the other details */}
                 <div>
-                <h1 className="font-[roboto-bold]">{item.title}</h1>
-                <p className="font-[roboto-light] text-sm text-[#454545]">{item.owner.username} {item.views.length} views</p>
-                <p className="font-[roboto-light] pt-4 text-sm">{item.description.slice(0,220)}</p>
+                <h1 className="font-[roboto-bold] dark:text-white">{item.title}</h1>
+                <p className="font-[roboto-light] dark:text-[#999] text-sm text-[#454545]">{item.owner.username} {item.views.length} views</p>
+                <p className="font-[roboto-light] pt-4 text-sm dark:text-[#999]">{item.description.slice(0,220)}</p>
                 </div>
                 </div>
             )
