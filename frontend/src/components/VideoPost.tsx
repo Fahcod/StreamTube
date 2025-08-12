@@ -8,7 +8,7 @@ const VideoPost = (props:VideoPostModel) => {
     {/* the video */}
     <div className="w-full">
     <Link to={`/watch/${props._id}`}>
-    <video src={props.video_url} className="md:rounded-md"></video>
+    <video src={props.video_url} className="md:rounded-md max-h-[200px] min-w-full object-cover"></video>
     </Link>
     </div>
     {/* the post details */}

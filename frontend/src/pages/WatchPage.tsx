@@ -229,7 +229,7 @@ const WatchPage = () => {
     {/* the right container */}
     <div className="flex flex-col gap-4 w-full md:w-[37%] md:pb-0 pb-11">
     {posts.map((item,index)=>{
-    if(item.post_type==="video"){
+    if(item.post_type==="video" && item._id !== activePost?._id){
       return <SmallVideo {...item} key={index} func={scrollPage}/>
     }
     })}

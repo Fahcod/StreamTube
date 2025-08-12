@@ -30,10 +30,10 @@ const WatchedVideo = (props:VideoPost) => {
     </div>
     {/* the details */}
     <div>
-    <h1 className="font-[roboto-bold] hidden md:block text-lg">{props.title}</h1>
+    <h1 className="font-[roboto-bold] dark:text-white hidden md:block text-lg">{props.title}</h1>
     <h1 className="font-[roboto-medium] dark:text-white md:font-[roboto-bold] text-sm md:hidden">{props.title.slice(0,18)}{props.title.length > 18?'...':''}</h1>
     <p className="font-[rubik-light] dark:text-[#999] text-[#454545] text-xs md:text-sm">{props.owner.username} {props.views.length} views</p>
-    <p className="font-[rubik-light] hidden md:block pt-5 text-sm">{props.description.slice(0,200)}</p>
+    <p className="font-[rubik-light] dark:text-[#999] hidden md:block pt-5 text-sm">{props.description.slice(0,200)}</p>
     </div>
     <div>
     {showRemoveBtn?<div onClick={()=>deleteHistory()} className="bg-white dark:bg-[#333] md:right-[unset] right-4 mt-7 absolute h-[40px] gap-2 flex items-center px-3 md:px-4 shadow-sm cursor-pointer rounded-md">

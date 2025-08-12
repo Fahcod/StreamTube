@@ -1,11 +1,21 @@
 import { BiDownload, BiHistory, BiHome, BiPlusCircle, BiSolidVideos } from "react-icons/bi";
 import { FaGear } from "react-icons/fa6";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import type { VideoPost } from "../interfaces/interfaces";
 
 const Sidebar = () => {
 
   const all_users:any[] = useSelector((state:any)=>state.users.all_users);
+  const all_posts:VideoPost[] = useSelector((state:any)=>state.posts.all_posts);
+  const navigate = useNavigate();
+
+  // the function to pick a reel
+  function pickReel(){
+  let latestRellVideo:VideoPost[] = all_posts.slice(-1);
+  const lastestReelId = latestRellVideo[0]._id;
+  navigate(`/reels/${lastestReelId}`)
+  }
 
   return (
     <div className="md:block dark:bg-[#101010] bg-white hidden px-6 w-[236px] overflow-y-scroll fixed h-screen pb-24 [&::-moz-scrollbar]:w-0 [&::-webkit-scrollbar]:w-0">
@@ -19,12 +29,10 @@ const Sidebar = () => {
     </div>
     </Link>
 
-    <Link to="/reels">
-    <div className="flex text-[#202020] dark:text-[#eeecec] items-center gap-3 cursor-pointer">
+    <div onClick={()=>pickReel()} className="flex text-[#202020] dark:text-[#eeecec] items-center gap-3 cursor-pointer">
     <BiSolidVideos className="w-6.5 h-6.5"/>
     <p className="text-[17px] font-[Arial] pt-0.5">Reels</p>
     </div>
-    </Link>
     
     <Link to="/create">
     <div className="flex text-[#202020] dark:text-[#eeecec]  items-center gap-3 cursor-pointer">

@@ -10,6 +10,8 @@ import { axiosInstance } from "../APIs/api";
 import { AppContext } from "../context/AppContext";
 import { useNavigate } from "react-router-dom";
 import { scrollPage } from "../utils/other";
+import BottomNav from "../components/Responsive/BottomNav";
+import PhoneNav from "../components/Responsive/PhoneNav";
 
 // the post_data type
 type PostData = {
@@ -51,7 +53,7 @@ const ReelUploadForm = () =>{
   // upload the video first
   fileData.append("file",videoURL);
 
-  let responseOne = await axiosInstance.post('/api/v1/files/upload',fileData);
+  let responseOne = await axiosInstance.post('/api/v1/files/upload-video',fileData);
   if(responseOne.status === 201){
     // upload the post data now
     const dataObject = {
@@ -125,7 +127,6 @@ const ReelUploadForm = () =>{
 
 // the video upload form
 const VideoUploadForm = () =>{
-
   // the video url
   const [videoURL,setVideoURL] = useState<any>("");
   const [isUploading,setIsUploading] = useState(false);
@@ -152,7 +153,7 @@ const VideoUploadForm = () =>{
   // upload the video first
   fileData.append("file",videoURL);
 
-  let responseOne = await axiosInstance.post('/api/v1/files/upload',fileData);
+  let responseOne = await axiosInstance.post('/api/v1/files/upload-video',fileData);
   if(responseOne.status === 201){
     // upload the post data now
     const dataObject = {
@@ -178,9 +179,9 @@ const VideoUploadForm = () =>{
   }
 
     return (
-        <div className="w-[90%] rounded-md h-[380px] flex p-5 gap-5 mt-8 border-solid border-[1px] dark:border-[#333] border-gray-200">
+        <div className="w-[98%] mb-24 md:mb-0 md:w-[90%] rounded-md md:h-[380px] flex flex-col md:flex-row p-2 md:p-5 gap-5 mt-8 border-solid border-[1px] dark:border-[#333] border-gray-200">
         {/* the video upload space */}
-        <div className="w-[50%]">
+        <div className="w-full md:w-[50%]">
         <input type="file" id="video" onChange={(e:any)=>setVideoURL(e.target.files[0])} hidden/>
         {
         videoURL?<div className="w-full h-full">
@@ -188,7 +189,7 @@ const VideoUploadForm = () =>{
         </div>
         :
         <label htmlFor="video">
-        <div className="w-full dark:bg-[#333] cursor-pointer flex items-center justify-center flex-col h-full bg-[#e9e6e6]">
+        <div className="w-full dark:bg-[#333] cursor-pointer flex items-center justify-center flex-col h-[200px] md:h-full bg-[#e9e6e6]">
         <div className="flex flex-col items-center gap-2">
         <BiSolidVideos className="w-11 text-[#888] h-11"/>
         <h1 className="font-[roboto-bold] text-[#888]">Click to select a video</h1>
@@ -197,14 +198,14 @@ const VideoUploadForm = () =>{
         </label>
         }
         </div>
-        <div className="w-[50%]">
+        <div className="md:w-[50%] w-full">
         <textarea onChange={handleChange} value={postData.description} name="description" className="dark:border-[#333] dark:text-white h-[180px] outline-none w-full rounded-md p-3 border-solid border-[1px] border-gray-200" placeholder="Type your video description here..."></textarea>
         <input onChange={handleChange} name="title" value={postData.title} type="text" className="dark:border-[#333] dark:text-white mt-3 border-solid rounded-md border-[1px] border-gray-200 p-2 w-full outline-none" placeholder="Type your video title here..."/>
         {/* the fields for the post category */}
-        <div className="w-full pt-5 grid grid-cols-3 gap-6 items-center">
+        <div className="w-full pt-5 grid grid-cols-2 md:grid-cols-3 gap-6 items-center">
         <div className="w-full">
         {/* <p className="font-[rubik-light]">Post category</p> */}
-        <select onChange={handleChange} value={postData.category} name="category" className="dark:border-[#333] dark:text-white mt-2 outline-none border-solid rounded-md border-[1px] border-gray-200 p-2">
+        <select onChange={handleChange} value={postData.category} name="category" className="dark:border-[#333] dark:bg-[#101010] dark:text-white mt-2 outline-none border-solid rounded-md border-[1px] border-gray-200 p-2">
         <option value="Category">Category</option>
         <option value="Technology">Technology</option>
         <option value="Farming">Farming</option>
@@ -220,8 +221,8 @@ const VideoUploadForm = () =>{
         </select>
         </div>
         {/* the button */}
-        <button className="cursor-pointer font-[roboto-light] px-4 py-2 bg-blue-500 text-white rounded-md">Edit video</button>
-         <button disabled={isUploading?true:false} onClick={()=>uploadVideo()} className={`cursor-pointer font-[roboto-light] px-4 py-2 ${isUploading?'bg-red-400':'bg-red-500'} text-white rounded-md`}>Upload video</button>
+        <button className="cursor-pointer hidden md:block font-[roboto-light] px-2 md:px-4 py-2 bg-blue-500 text-white rounded-md">Edit video</button>
+         <button disabled={isUploading?true:false} onClick={()=>uploadVideo()} className={`cursor-pointer font-[roboto-light] px-2 md:px-4 py-2 ${isUploading?'bg-red-400':'bg-red-500'} text-white rounded-md`}>Upload video</button>
         </div>
         </div>
         </div>
@@ -235,47 +236,48 @@ const CreatePage = () => {
 
   return (
     <>
+    <PhoneNav/>
     <Navbar/>
     <div className="w-full flex">
     <Sidebar/>
     <div className="w-full md:ml-[236px] md:p-5">
     {/* the image banner */}
-    <div className="w-full">
+    <div className="w-full md:block hidden">
     <img src={assets.banner_icon} className="w-full h-[230px] object-cover rounded-md"/>
     </div>
     {/* the header */}
-    <div className="flex gap-5 mt-5">
+    <div className="flex gap-5 mt-5 p-2 md:p-0">
     <div>
-    <img src={userData?.profile_pic} className="w-44 h-44 rounded-full object-cover"/>
+    <img src={userData?.profile_pic} className="w-24 md:w-44 flex-shrink-0 h-24 md:h-44 rounded-full object-cover"/>
     </div>
     {/* the user details */}
     <div className="">
-    <h1 className="font-[roboto-bold] dark:text-white text-2xl">{userData?.fullname}</h1>
+    <h1 className="font-[roboto-bold] dark:text-white text-lg md:text-2xl">{userData?.fullname}</h1>
     <p className="font-[roboto-light] dark:text-[#999]">@{userData?.username}</p>
     <p className="dark:text-[#fff]">26 videos</p>
     <p className="dark:text-[#999]">{userData?.followers.length} followers | {userData?.following.length} following</p>
     {/* the buttons */}
      <div className="flex items-center gap-4">
-     <button className="py-2 px-5 cursor-pointer rounded-full bg-red-500 mt-3 font-[rubik-light] text-white">Edit profile info</button>
+     <button className="py-2 px-5 hidden md:block  cursor-pointer rounded-full bg-red-500 mt-3 font-[rubik-light] text-white">Edit profile info</button>
      <button className="py-2 px-5 cursor-pointer rounded-full bg-[#cccccc] dark:bg-[#333] dark:text-white mt-3 font-[rubik-light] text[#454545]">Manage videos</button>
      </div>
     </div>
     </div>
-    <div className="pt-6 flex items-center">
-    <h1 className="font-[roboto-bold] dark:text-white text-xl">Create a post</h1>
-    <div className="flex items-center gap-6 pl-11">
+    <div className="pt-6 flex flex-col md:flex-row md:items-center">
+    <h1 className="font-[roboto-bold] dark:text-white text-xl md:pl-0 pl-2">Create a post</h1>
+    <div className="flex items-center gap-6 md:p-0 p-2 md:pl-11">
     {/* the post option */}
-     <div onClick={()=>setPostCategory("Video")} className="dark:bg-[#333] cursor-pointer bg-[#e2e1e1] py-1 px-3 rounded-md gap-2 flex items-center">
+     <div onClick={()=>setPostCategory("Video")} className="dark:bg-[#333] cursor-pointer bg-[#e2e1e1] py-1 px-2 md:px-3 rounded-md gap-2 flex items-center">
     <BiSolidVideos className="w-5 h-5 text-red-500"/>
      <p className="font-[roboto-light] dark:text-white">Video</p>
      </div>
       {/* the post option */}
-     <div onClick={()=>setPostCategory("Reel")} className="dark:bg-[#333] cursor-pointer bg-[#e2e1e1] py-1 px-3 rounded-md gap-2 flex items-center">
+     <div onClick={()=>setPostCategory("Reel")} className="dark:bg-[#333] cursor-pointer bg-[#e2e1e1] py-1 px-2 md:px-3 rounded-md gap-2 flex items-center">
     <BiSolidVideos className="w-5 h-5 text-green-500"/>
      <p className="font-[roboto-light] dark:text-white">Reel</p>
      </div>
       {/* the post option */}
-     <div className="cursor-pointer dark:bg-[#333] bg-[#e2e1e1] py-1 px-3 rounded-md gap-2 flex items-center">
+     <div className="cursor-pointer dark:bg-[#333] bg-[#e2e1e1] py-1 px-2 md:px-3 rounded-md gap-2 flex items-center">
     <FaTextWidth className="w-5 h-5 text-blue-500"/>
      <p className="font-[roboto-light] dark:text-white">Text</p>
      </div>
@@ -288,6 +290,7 @@ const CreatePage = () => {
     </div>
     </div>
     </div>
+    <BottomNav/>
     </>
   )
 }
