@@ -6,6 +6,7 @@ from routes.user_route import user_router
 from routes.file_route import file_router
 from routes.post_route import post_router
 from routes.comment_route import comment_router
+from routes.notification_route import notification_router
 from middleware.middleware import register_middleware
 from fastapi.middleware.cors import CORSMiddleware
 # from fastapi.staticfiles import StaticFiles
@@ -19,7 +20,7 @@ register_middleware(app)
 # https://streamtube-app.onrender.com
 app.add_middleware(
     CORSMiddleware,
-    allow_origins = ["https://streamtube-app.onrender.com"],
+    allow_origins = ["http://localhost:5174","https://streamtube-app.onrender.com"],
     allow_credentials = True,
     allow_methods = ["GET","POST","PUT","DELETE"],
     allow_headers = ["*"]
@@ -31,6 +32,7 @@ app.include_router(user_router)
 app.include_router(file_router)
 app.include_router(post_router)
 app.include_router(comment_router)
+app.include_router(notification_router)
 
 if __name__ == "__main__":
     app.debug = True

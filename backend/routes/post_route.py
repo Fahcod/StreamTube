@@ -8,6 +8,7 @@ from models.post_models import VideoPostModel
 from config.db import posts_collection
 from serializers.post_serializer import decode_video_posts
 from bson import ObjectId
+from utils.notifications import notify_followers
 
 # the post router
 post_router = APIRouter(prefix=f"/api/{VERSION}/posts")
@@ -22,13 +23,16 @@ def create_video_post(data:VideoPostModel):
     form_data["creator"] = ObjectId(creator_id)
     # try saving the post
     try:
-        save_post = posts_collection.insert_one(form_data)
-        # fetch the post and return it
-        post_id = save_post.inserted_id
-        # fetch the post
-        post = posts_collection.find_one({"_id":str(post_id)})
+        posts_collection.insert_one(form_data)
+        # NOTIFY ALL THE FOLLOWERS
+        notify_followers(
+            user_id=creator_id,
+            tag="New post",
+            message="created a new post"
+            )
+
         # return the response
-        content = {"message":"Post created successfully","post":post}
+        content = {"message":"Post created successfully"}
         return JSONResponse(content=content,status_code=201)
 
     except Exception as e:
@@ -51,12 +55,18 @@ def fetch_posts():
                     "foreignField":"_id",
                     "as":"owner"
                 },
-
             },
-
                 {
                     "$unwind":"$owner"
-                }
+                },
+           {
+               "$lookup":{
+                   "from":"comments",
+                   "localField":"comments",
+                   "foreignField":"_id",
+                   "as":"comments"
+               }
+           }
 
         ]
         # fetch the data

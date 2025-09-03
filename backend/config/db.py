@@ -18,6 +18,7 @@ db = client.NowStream
 users_collection = db["users"]
 posts_collection = db["posts"]
 comments_collection = db["comments"]
+notifications_collection = db["notifications"]
 
 # try connecting to the database
 try:

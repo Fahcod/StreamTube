@@ -17,6 +17,7 @@ def decode_video_post(data)->dict:
         "views":data["views"],
         "dislikes":data["dislikes"],
         "description":data["description"],
+        "comments":data["comments"],
         "reposts":data["reposts"],
         "created_at":str(data["created_at"]),
         "updated_at":str(data["updated_at"])

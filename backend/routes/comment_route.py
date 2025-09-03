@@ -3,7 +3,7 @@ from fastapi.responses import JSONResponse
 from fastapi.exceptions import HTTPException
 from utils.token_parser import parse_token
 from lib.version import VERSION
-from config.db import comments_collection
+from config.db import comments_collection,posts_collection
 from models.comment_models import CommentModel
 from bson import ObjectId
 
@@ -23,7 +23,7 @@ def create_comment(data:CommentModel,post_id:str,auth:str=Cookie()):
     try:
         commentID = comments_collection.insert_one(form_data)
         # update the post
-        comments_collection.update_one({"_id":ObjectId(post_id)},{"$push":{"comments":str(commentID)}})
+        posts_collection.update_one({"_id":ObjectId(post_id)},{"$push":{"comments":str(commentID.inserted_id)}})
         content = {"message":"Comment added successfully"}
         return JSONResponse(content=content,status_code=status.HTTP_201_CREATED)
 
