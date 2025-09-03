@@ -12,7 +12,6 @@ import { scrollPage } from "../utils/other";
 import BottomNav from "../components/Responsive/BottomNav";
 import PhoneNav from "../components/Responsive/PhoneNav";
 
-
 const VideosContainer = (props:any)=>{
     return(
    <div className="w-full grid-cols-1 grid md:grid-cols-4 gap-5 pt-6 pb-24 md:pb-5">
@@ -76,10 +75,10 @@ const ProfilePage = () =>{
      </div>
      {/* the other details */}
      <div className="md:pt-3">
-     <h1 className="font-[roboto-bold] dark:text-white text-[#101010] text-lg md:text-2xl">{userData?.fullname}</h1>
-     <h2 className="dark:text-[#999] font-[roboto-light]">@{userData?.username}</h2>
-     <p className="dark:text-white">{userData?.followers.length} followers | {userData?.following.length} following</p>
-     <p className="md:block dark:text-[#999] hidden">{userData?.profile_bio.slice(0,55)}...</p>
+     <h1 className="font-[roboto-bold] text-[#101010] text-lg md:text-2xl">{userData?.fullname}</h1>
+     <h2 className="font-[roboto-light]">@{userData?.username}</h2>
+     <p className="">{userData?.followers.length} followers | {userData?.following.length} following</p>
+     <p className="md:block hidden">{userData?.profile_bio.slice(0,55)}...</p>
      {/* the buttons */}
      <div className="w-full md-[auto] flex items-center gap-4">
      <button onClick={()=>dispacth(setShowUPdateProfile(true))} className="py-2 px-2 md:px-5 cursor-pointer text-[12px] md:text-[16px] rounded-full bg-red-500 mt-3 font-[rubik-light] text-white">Edit profile info</button>
@@ -92,12 +91,12 @@ const ProfilePage = () =>{
      <div className="w-full">
      <div className="pt-5 pl-2 md:pl-0">
      <ul>
-     <li onClick={()=>setActiveLink("Videos")} className={`inline ${activeLink==="Videos"?'text-[#000] dark:text-white':'text-[#454545] dark:text-[#999]'} font-[roboto-medium] cursor-pointer md:px-6`}>VIDEOS</li>
-     <li onClick={()=>setActiveLink("Reels")} className={`inline ${activeLink==="Reels"?'text-[#000] dark:text-white':'text-[#454545] dark:text-[#999]'} cursor-pointer font-[roboto-medium] px-6`}>REELS</li>
+     <li onClick={()=>setActiveLink("Videos")} className={`inline ${activeLink==="Videos"?'text-[#000]':'text-[#454545]'} font-[roboto-medium] cursor-pointer md:px-6`}>VIDEOS</li>
+     <li onClick={()=>setActiveLink("Reels")} className={`inline ${activeLink==="Reels"?'text-[#000]':'text-[#454545]'} cursor-pointer font-[roboto-medium] px-6`}>REELS</li>
      <li className="inline cursor-pointer font-[roboto-medium] text-[#454545] dark:text-[#999] px-6">LIKED</li>
      </ul>
      </div>
-     <hr className="mt-2 h-[1px] bg-gray-200 dark:bg-[#333] outline-none border-none"/>
+     <hr className="mt-2 h-[1px] bg-gray-200 outline-none border-none"/>
      </div>
      {/* the user's videos and posts */}
      {activeLink==='Videos'?<VideosContainer userPosts={userPosts}/>:<ReelsContainer userPosts={userPosts}/>}

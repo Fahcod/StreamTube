@@ -1,5 +1,4 @@
-import {BiBell,BiHistory,BiMenu,BiSearch} from "react-icons/bi"
-import {FaFacebookMessenger} from "react-icons/fa6";
+import {BiHistory,BiSearch, BiSolidBell, BiSolidGrid, BiSolidVideo} from "react-icons/bi"
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useContext } from "react";
@@ -29,17 +28,17 @@ const Navbar = () => {
   const {textSearchTerm,setTextSearchTerm} = useContext<any>(AppContext);
 
   return (
-    <div className="w-full dark:bg-[#101010] hidden md:flex sticky top-0 bg-white px-6 items-center justify-between z-[200] h-[60px] border-solid border-b-[1px] dark:border-[#222] border-gray-100">
+    <div className="w-full hidden md:flex sticky top-0 bg-white px-6 items-center justify-between z-[200] h-[60px] border-solid border-b-[1px] border-gray-100">
    {/* the app logo */}
    <div>
-    <h1 className="font-[roboto-black] text-2xl text-[#101010] dark:text-white">Stream<span className="text-red-500">Tube</span></h1>
+    <h1 className="font-[roboto-black] text-2xl">Stream<span className="text-red-500">Tube</span></h1>
    </div>
     {/* the search bar */}
     <div className="w-[40%] relative">
-    <div className="w-full px-3 border-solid border-[1px] rounded-3xl dark:border-[#333] border-gray-200 h-[41px] flex items-center justify-between">
+    <div className="w-full px-3 border-solid border-[1px] rounded-3xl border-gray-200 h-[41px] flex items-center justify-between">
     <input type="text" onChange={(e)=>{
       setTextSearchTerm(e.target.value)
-    }} value={textSearchTerm} className="w-[95%] dark:text-white outline-none h-full" placeholder="search here"/>
+    }} value={textSearchTerm} className="w-[95%] outline-none h-full" placeholder="search here"/>
     <button
     onClick={()=>{navigate(`/search/${textSearchTerm}`)}}
     >
@@ -61,14 +60,14 @@ const Navbar = () => {
     </div>
     {/* the last div */}
     <div className="cursor-pointer flex items-center gap-4">
-    <div className="flex items-center justify-center dark:text-white dark:bg-[#222] w-[40px] h-[40px] bg-[#efefef] rounded-full">
-    <FaFacebookMessenger className="w-5 h-5"/>
+    <div className="flex items-center justify-center w-[40px] h-[40px] bg-[#efefef] rounded-full">
+    <BiSolidVideo className="w-6 h-6"/>
     </div>
-    <div className="cursor-pointer flex items-center dark:text-white dark:bg-[#222] justify-center w-[40px] h-[40px] bg-[#efefef] rounded-full">
-    <BiBell className="w-6 h-6"/>
+    <div className="cursor-pointer flex items-center justify-center w-[40px] h-[40px] bg-[#efefef] rounded-full">
+    <BiSolidBell className="w-6 h-6"/>
     </div>
-    <div className="cursor-pointer flex items-center dark:text-white dark:bg-[#222] justify-center w-[40px] h-[40px] bg-[#efefef] rounded-full">
-    <BiMenu className="w-6 h-6"/>
+    <div className="cursor-pointer flex items-center justify-center w-[40px] h-[40px] bg-[#efefef] rounded-full">
+    <BiSolidGrid className="w-6 h-6"/>
     </div>
     {/* the user profile picture */}
     <Link to="/profile">

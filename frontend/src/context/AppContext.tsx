@@ -2,15 +2,16 @@ import { createContext, useEffect, useState } from "react";
 import { axiosInstance } from "../APIs/api";
 import { useDispatch } from "react-redux";
 import { setPosts } from "../slices/posts.slice";
-import { setUserData } from "../slices/user.slice";
+import { fetchUser, setUserData } from "../slices/user.slice";
 import { setUsers } from "../slices/usersSlice";
+import type { AppDispatch } from "../store/store";
 
 export const AppContext = createContext({});
 
 const AppContextProvider = (props:any)=>{
 
    //hook calls
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
    //the search term
    const [textSearchTerm,setTextSearchTerm] = useState("")
 
@@ -113,7 +114,7 @@ const AppContextProvider = (props:any)=>{
     // call all the APIs
     useEffect(()=>{
    fetchAllPosts();
-   fetchUserData();
+   dispatch(fetchUser())
    fetchAllUsers()
     },[])
 

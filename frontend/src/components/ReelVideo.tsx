@@ -108,39 +108,39 @@ const ReelVideo = (props:VideoPost) => {
 
     {/* the video option */}
     <div className="flex flex-col items-center gap-2">
-    <div className="bg-[#eeeaea] dark:bg-[#333] p-2 rounded-full cursor-pointer">
-    <BiDotsVerticalRounded className="dark:text-white w-5 h-5"/>
+    <div className="bg-[#eeeaea] p-2 rounded-full cursor-pointer">
+    <BiDotsVerticalRounded className="w-5 h-5"/>
     </div>
     </div>
     
     {/* the video option */}
     <div className="flex flex-col items-center gap-2">
-    <div onClick={()=>{likePost([props._id])}} className="bg-[#eeeaea] dark:bg-[#333] p-2 rounded-full cursor-pointer">
-    <BiSolidLike className="w-5 h-5 dark:text-white"/>
+    <div onClick={()=>{likePost([props._id])}} className="bg-[#eeeaea] p-2 rounded-full cursor-pointer">
+    <BiSolidLike className="w-5 h-5"/>
     </div>
-    <p className="font-[rubik-light] dark:text-white text-sm">{props.likes.length}</p>
-    </div>
-
-    {/* the video option */}
-    <div className="flex flex-col items-center gap-2">
-    <div className="bg-[#eeeaea] dark:bg-[#333] p-2 rounded-full cursor-pointer">
-    <BiSolidDislike className="w-5 h-5 dark:text-white"/>
-    </div>
-    <p className="font-[rubik-light] dark:text-white text-sm">Dislike</p>
+    <p className="font-[rubik-light] text-sm">{props.likes.length}</p>
     </div>
 
     {/* the video option */}
     <div className="flex flex-col items-center gap-2">
-    <div className="bg-[#eeeaea] dark:bg-[#333] p-2 rounded-full cursor-pointer">
-    <BiSolidComment className="w-5 dark:text-white h-5"/>
+    <div className="bg-[#eeeaea] p-2 rounded-full cursor-pointer">
+    <BiSolidDislike className="w-5 h-5"/>
     </div>
-    <p className="font-[rubik-light] dark:text-white text-sm">345k</p>
+    <p className="font-[rubik-light] text-sm">Dislike</p>
     </div>
 
     {/* the video option */}
     <div className="flex flex-col items-center gap-2">
-    <div className="bg-[#eeeaea] dark:text-white dark:bg-[#333] p-2 rounded-full cursor-pointer">
-    <BiSolidDownload className="w-5 dark:text-white h-5"/>
+    <div className="bg-[#eeeaea] p-2 rounded-full cursor-pointer">
+    <BiSolidComment className="w-5 h-5"/>
+    </div>
+    <p className="font-[rubik-light] text-sm">345k</p>
+    </div>
+
+    {/* the video option */}
+    <div className="flex flex-col items-center gap-2">
+    <div className="bg-[#eeeaea] p-2 rounded-full cursor-pointer">
+    <BiSolidDownload className="w-5 h-5"/>
     </div>
     </div>
 

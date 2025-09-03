@@ -29,3 +29,20 @@
     font-family:'roboto-medium';
     src: url('./assets/fonts/Roboto-Medium.ttf');
 }
+
+/* styling the video player slider */
+#slider {
+    height:4px;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #dadada;
+    border-radius:6px;
+}
+
+#slider::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    background-color: #fff;
+    width:13px;
+    height:13px;
+    border-radius:50%;
+}

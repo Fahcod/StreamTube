@@ -21,11 +21,11 @@ const VideoPost = (props:VideoPostModel) => {
     </Link>
     {/* the video details */}
     <div className="">
-    <h2 className="font-[roboto-bold] dark:text-white md:block hidden leading-5 text-[#101010]">{props.title.slice(0,55)}{props.title.length > 55?'...':''}</h2>
+    <h2 className="font-[roboto-bold] md:block hidden leading-5 text-[#101010]">{props.title.slice(0,55)}{props.title.length > 55?'...':''}</h2>
     {/* the title for mobile */}
-    <h2 className="font-[roboto-bold] dark:text-white text-sm md:hidden leading-none text-[#101010]">{props.title.slice(0,28)}{props.title.length > 28?'...':''}</h2>
-    <p className="pt-1 leading-none text-sm dark:text-[#a7a7a7] text-[#101010] font-[rubik-light]">{props.owner.username}</p>
-    <p className="leading-none text-xs text-[#101010] dark:text-[#a7a7a7] font-[rubik-light] pt-1">12d ago {props?.views.length} views</p>
+    <h2 className="font-[roboto-bold] text-sm md:hidden leading-none text-[#101010]">{props.title.slice(0,28)}{props.title.length > 28?'...':''}</h2>
+    <p className="pt-1 leading-none text-sm text-[#101010] font-[rubik-light]">{props.owner.username}</p>
+    <p className="leading-none text-xs text-[#101010] font-[rubik-light] pt-1">12d ago {props?.views.length} views</p>
     </div>
     </div>
     </div>

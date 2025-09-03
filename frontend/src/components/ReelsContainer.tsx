@@ -27,7 +27,6 @@ const ReelsContainer = () => {
     <div className="w-full grid grid-cols-2 md:grid-cols-5 gap-4 pt-5">
     {getFirstSix().map((item:VideoPostModel,index:number)=>{
         return (
-            <>
            <div className="" key={index}>
            {/* the video */}
            <Link to={`/reels/${item._id}`}>
@@ -35,12 +34,11 @@ const ReelsContainer = () => {
            </Link>
            {/* the details */}
            <div className="w-full flex justify-between pt-2">
-           <h1 className="font-[roboto-medium] dark:text-white text-sm md:text-[16px]">{item.title.slice(0,28)}...</h1>
-           <BiDotsVerticalRounded className="dark:text-white w-5 h-5 md:w-6 md:h-6 cursor-pointer flex-shrink-0"/>
+           <h1 className="font-[roboto-medium] text-sm md:text-[16px]">{item.title.slice(0,28)}...</h1>
+           <BiDotsVerticalRounded className="w-5 h-5 md:w-6 md:h-6 cursor-pointer flex-shrink-0"/>
            </div>
-           <p className="font-[roboto-light] dark:text-[#a7a7a7] text-sm text-[#454545]">{item?.views.length} views</p>
+           <p className="font-[roboto-light] text-sm text-[#454545]">{item?.views.length} views</p>
            </div>
-            </>
         )
     })}
     </div>

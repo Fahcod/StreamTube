@@ -9,9 +9,9 @@ const SmallVideo = (props:any) => {
     </Link>
     {/* the video details */}
     <div className="md:px-0 px-1">
-    <h1 className="font-[roboto-bold] dark:text-white text-sm md:text-[16px]">{props.title}...</h1>
-    <p className="leading-none text-sm text-[#101010] dark:text-[#a7a7a7] font-[roboto-light]">Codewizard</p>
-    <p className="leading-none text-xs text-[#101010] dark:text-[#a7a7a7] font-[roboto-light] pt-1">12d ago 45k views</p>
+    <h1 className="font-[roboto-bold] text-sm md:text-[16px]">{props.title}...</h1>
+    <p className="leading-none text-sm text-[#101010] font-[roboto-light]">Codewizard</p>
+    <p className="leading-none text-xs text-[#101010] font-[roboto-light] pt-1">12d ago 45k views</p>
     </div>
     </div>
   )

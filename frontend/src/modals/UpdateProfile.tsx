@@ -30,7 +30,7 @@ const UpdateProfile = () => {
     let formData = new FormData();
     formData.append("file",imageFile);
     // uploadin the image file and if successfull,send the data
-    let responseOne = await axiosInstance.post('/api/v1/files/upload-image',formData)
+    let responseOne = await axiosInstance.post('/api/v1/files/upload',formData)
     if(responseOne.status === 201){
     // create the dataObject
     const dataObject = {
@@ -55,12 +55,12 @@ const UpdateProfile = () => {
 
 
   return (
-    <div className={`w-full ${isShow?'flex':'hidden'} items-center justify-center h-screen bg-[#0000006b] dark:bg-[#1616166b] fixed top-0 z-[300]`}>
+    <div className={`w-full ${isShow?'flex':'hidden'} items-center justify-center h-screen bg-[#0000006b] fixed top-0 z-[300]`}>
     {/* the profile upload form */}
-    <div className="bg-white dark:bg-[#0e0d0d] h-screen md:h-[unset] w-full md:w-[350px] px-4 py-5 pb-5 md:rounded-md">
+    <div className="bg-white h-screen md:h-[unset] w-full md:w-[350px] px-4 py-5 pb-5 md:rounded-md">
     {/* the header */}
     <div className="w-full flex justify-between">
-    <h1 className="font-[roboto-medium] dark:text-white">Update profile information</h1>
+    <h1 className="font-[roboto-medium]">Update profile information</h1>
     <p onClick={()=>{dispatch(setShowUPdateProfile(false))}} className="font-[roboto-medium] text-red-500 cursor-pointer">Close</p>
     </div>
     {/* the profile image */}
@@ -76,12 +76,12 @@ const UpdateProfile = () => {
     </div>
     {/* the texts */}
     <div className="w-full pt-5">
-    <p className="font-[roboto-medium] dark:text-[#999] text-[#454545] text-sm">New username</p>
-    <input type="text" name="username" onChange={handleChange} value={userInfo.username} placeholder="type your new username" className="mt-2 dark:border-[#333] dark:text-white font-[roboto-light] outline-none rounded-md p-2 w-full border-solid border-[1px] border-gray-200" autoComplete="off"/>
+    <p className="font-[roboto-medium] text-[#454545] text-sm">New username</p>
+    <input type="text" name="username" onChange={handleChange} value={userInfo.username} placeholder="type your new username" className="mt-2 font-[roboto-light] outline-none rounded-md p-2 w-full border-solid border-[1px] border-gray-200" autoComplete="off"/>
     </div>
     <div className="w-full pt-5">
-      <p className="font-[roboto-medium] dark:text-[#999] text-[#454545] text-sm">New user bio</p>
-      <textarea onChange={handleChange} value={userInfo.profile_bio} name="profile_bio" placeholder="type your profile bio" className="font-[roboto-light] dark:border-[#333] dark:text-white rounded-md outline-none h-[110px] mt-2 p-1 w-full border-solid border-[1px] border-gray-200"></textarea>
+      <p className="font-[roboto-medium] text-[#454545] text-sm">New user bio</p>
+      <textarea onChange={handleChange} value={userInfo.profile_bio} name="profile_bio" placeholder="type your profile bio" className="font-[roboto-light] rounded-md outline-none h-[110px] mt-2 p-1 w-full border-solid border-[1px] border-gray-200"></textarea>
     </div>
     {/* the upload button */}
     <div className="w-full mt-5">

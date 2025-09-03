@@ -33,7 +33,7 @@ const manifest:any ={
       },
     ],
     theme_color: "#000",
-    background_color: "#ffffff",
+    background_color: "#fff",
     display: "standalone",
     scope: "/",
     start_url: "/",

@@ -53,8 +53,8 @@ const OtherProfile = () =>{
      {/* the other details */}
      <div className="pt-3">
      <h1 className="font-[roboto-black] text-[#101010] text-lg md:text-2xl">{userData?.fullname}</h1>
-     <h2 className="font-[roboto-light]">@{userData?.username}</h2>
-     <p>{userData?.followers.length} followers | {userData?.following.length} following</p>
+     <h2 className="font-[roboto-light] text-[#454545]">@{userData?.username}</h2>
+     <p className="">{userData?.followers.length} followers | {userData?.following.length} following</p>
      <p className="hidden md:block">I am a fullstack software developer...more</p>
      {/* the buttons */}
      <div className="flex items-center gap-4">

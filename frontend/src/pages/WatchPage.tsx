@@ -9,6 +9,7 @@ import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../context/AppContext";
 import { scrollPage } from "../utils/other";
 import PhoneNav from "../components/Responsive/PhoneNav";
+import VideoPlayer from "../components/VideoPlayer";
 
 const WatchPage = () => {
 
@@ -38,35 +39,35 @@ const WatchPage = () => {
     <div className="w-full flex flex-col md:flex-row md:p-5 gap-8 justify-between">
     {/* the left container */}
     <div className="w-full md:w-[63%]">
-    {/* the video */}
-    <video src={activePost?.video_url} controls className="w-full md:rounded-md"></video>
+    {/* the video player*/}
+    <VideoPlayer video_url={activePost?.video_url}/>
     {/* the video details */}
-    <h1 className="font-[roboto-black] dark:text-white text-sm md:text-xl py-1 px-2 md:px-0">{activePost?.title}</h1>
+    <h1 className="font-[roboto-black] text-sm md:text-xl py-1 px-2 md:px-0">{activePost?.title}</h1>
     <div className="w-full py-3 px-2 flex md:hidden items-center justify-between">
     {/* the left contaiiner */}
     <div className="">
-    <p className="text-[#454545] text-xs dark:text-[#a7a7a7]">34 views</p>
+    <p className="text-[#454545] text-xs">34 views</p>
     </div>
     {/* the right icons container */}
     <div className="flex items-center gap-5">
     <div onClick={()=>likePost(activePost?._id)} className="flex items-center gap-2 cursor-pointer">
-    <BiLike className="dark:text-white md:w-6 w-5 h-5 md:h-6"/>
-    <p className="text-[#454545] text-sm dark:text-[#a7a7a7]">{activePost?.likes?.length}</p>
+    <BiLike className="md:w-6 w-5 h-5 md:h-6"/>
+    <p className="text-[#454545] text-sm">{activePost?.likes?.length}</p>
     </div>
 
     <div onClick={()=>dislikePost(activePost?._id)} className="flex items-center gap-2 cursor-pointer">
-    <BiDislike className="dark:text-white w-5 md:w-6 h-5 md:h-6"/>
-    <p className="text-[#454545] text-sm dark:text-[#a7a7a7]">{activePost?.dislikes?.length}</p>
+    <BiDislike className="w-5 md:w-6 h-5 md:h-6"/>
+    <p className="text-[#454545] text-sm">{activePost?.dislikes?.length}</p>
     </div>
 
     <div className="flex items-center gap-2 cursor-pointer">
-    <BiMessage className="dark:text-white w-5 h-5 md:w-6 md:h-6"/>
-    <p className="text-[#454545] text-sm dark:text-[#a7a7a7]">{activePost?.comments?.length}</p>
+    <BiMessage className="w-5 h-5 md:w-6 md:h-6"/>
+    <p className="text-[#454545] text-sm">{activePost?.comments?.length}</p>
     </div>
 
     <div onClick={()=>saveVideo(activePost?._id)} className="flex items-center gap-2 cursor-pointer">
-    <BiDownload className="w-5 h-5 dark:text-white md:w-6 md:h-6"/>
-    <p className="text-[#454545] dark:text-[#a7a7a7] text-sm">
+    <BiDownload className="w-5 h-5 md:w-6 md:h-6"/>
+    <p className="text-[#454545] text-sm">
       {activePost && userData?.saved_videos.includes(activePost?._id)?'Saved':'Save'}
       </p>
     </div>
@@ -83,8 +84,8 @@ const WatchPage = () => {
     </Link>
     {/* the creator details */}
     <div>
-    <h2 className="font-[roboto-bold] text-sm dark:text-white md:text-lg">{activePost?.owner.username}</h2>
-    <p className="text-sm text-[#454545] dark:text-[#a7a7a7] leading-none">{activePost?.owner.followers?.length} followers</p>
+    <h2 className="font-[roboto-bold] text-sm md:text-lg">{activePost?.owner.username}</h2>
+    <p className="text-sm text-[#454545] leading-none">{activePost?.owner.followers?.length} followers</p>
     </div>
     </div>
     {/* the right container */}
@@ -93,23 +94,23 @@ const WatchPage = () => {
     <div className="md:flex hidden items-center gap-3 px-2">
     
     <div onClick={()=>likePost(activePost?._id)} className="flex items-center gap-2 cursor-pointer">
-    <BiLike className="md:w-6 dark:text-white w-5 h-5 md:h-6"/>
-    <p className="text-[#454545] text-sm dark:text-[#a7a7a7]">{activePost?.likes?.length}</p>
+    <BiLike className="md:w-6 w-5 h-5 md:h-6"/>
+    <p className="text-[#454545] text-sm">{activePost?.likes?.length}</p>
     </div>
 
     <div onClick={()=>dislikePost(activePost?._id)} className="flex items-center gap-2 cursor-pointer">
-    <BiDislike className="w-5 dark:text-white md:w-6 h-5 md:h-6"/>
-    <p className="text-[#454545] text-sm dark:text-[#a7a7a7]">{activePost?.dislikes?.length}</p>
+    <BiDislike className="w-5 md:w-6 h-5 md:h-6"/>
+    <p className="text-[#454545] text-sm">{activePost?.dislikes?.length}</p>
     </div>
 
     <div className="flex items-center gap-2 cursor-pointer">
-    <BiMessage className="w-5 dark:text-white h-5 md:w-6 md:h-6"/>
-    <p className="text-[#454545] text-sm dark:text-[#a7a7a7]">{activePost?.comments?.length}</p>
+    <BiMessage className="w-5 h-5 md:w-6 md:h-6"/>
+    <p className="text-[#454545] text-sm">{activePost?.comments?.length}</p>
     </div>
 
     <div onClick={()=>saveVideo(activePost?._id)} className="flex items-center gap-2 cursor-pointer">
-    <BiDownload className="w-5 dark:text-white h-5 md:w-6 md:h-6"/>
-    <p className="text-[#454545] text-sm dark:text-[#a7a7a7]">
+    <BiDownload className="w-5 h-5 md:w-6 md:h-6"/>
+    <p className="text-[#454545] text-sm">
       {activePost && userData?.saved_videos.includes(activePost?._id)?'Saved':'Save'}
       </p>
     </div>
@@ -125,103 +126,40 @@ const WatchPage = () => {
     </div>
     {/* the video descripttion */}
     <div className="w-full md:px-0 px-2">
-    <div className="md:mt-5 mt-3 bg-[#efefef] dark:bg-[#333] p-3 rounded-md">
-    <h1 className="font-[roboto-bold] dark:text-white">{activePost?.title}</h1>
-    <p className="font-[roboto-light] dark:text-[#fff] text-sm">{activePost?.description.slice(0,200)}...more</p>
+    <div className="md:mt-5 mt-3 bg-[#efefef] p-3 rounded-md">
+    <h1 className="font-[roboto-bold]">{activePost?.title}</h1>
+    <p className="font-[roboto-light] text-sm">{activePost?.description.slice(0,200)}...more</p>
     </div>
     </div>
     {/* the post comments */}
-    <div className="w-full hidden pt-3">
+    <div className="w-full pt-3 md:px-0 px-2">
     {/* the header */}
     <div className="">
-    <h2 className="font-[rubik-bold] text-lg">Comments</h2>
+    <h2 className="font-[roboto-bold] text-lg">Comments</h2>
     </div>
     {/* the add comment form */}
     <div className="w-full flex pt-2 gap-3">
-    <div>
-    <img src={assets.banner_icon} className="w-[40px] h-[40px] rounded-full"/>
+    <div className="flex-shrink-0">
+    <img src={assets.banner_icon} className="w-[40px] flex-shrink-0 h-[40px] rounded-full"/>
     </div>
     {/* the add comment fields */}
-    <div className="w-[100%] px-3 flex items-center justify-between h-[42px] bg-[#efefef] rounded-md">
-    <input type="text" onChange={(e)=>setCommentText(e.target.value)} value={commentText} className="h-full w-[90%] outline-none" placeholder="Add a comment"/>
+    <div className="w-[100%] px-3 flexborder-solid border-b-[1px] border-gray-200 items-center justify-between h-[42px] bg-transparent">
+    <input type="text" onChange={(e)=>setCommentText(e.target.value)} value={commentText} className="h-full md-[80%] md:w-[90%] outline-none" placeholder="Add a comment"/>
     <button onClick={()=>{
       if(commentText.length < 1){
         return;
       }
       addComment(activePost?._id,commentText);
       setCommentText("")
-    }} className="cursor-pointer font-[rubik-light] font-semibold text-blue-500">Add</button>
+    }} className="cursor-pointer font-[rubik-light] font-semibold">Add</button>
     </div>
     </div>
-     <hr className="mt-4 border-none outline-none h-[1px] bg-gray-200"/>
     {/* the comments container */}
-    <div className="w-full flex flex-col gap-7 pt-5">
-    
-    {/* the comment div */}
-    <div className="w-full">
-    {/* the user info */}
-    <div className="flex gap-2">
-    <div className="flex-shrink-0 ">
-    <img src={assets.banner_icon} className="w-[35px] h-[35px] rounded-full object-cover"/>
-    </div>
-    <div>
-    <h2 className="font-[rubik-semibold]">Twesigye fahad</h2>
-    <p className="font-[rubik-light] text-sm">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam sapiente consectetur voluptatem minima minus nam distinctio quo in, recusandae iusto, cumque nemo quasi adipisci molestiae accusamus quas quis libero. Optio.</p>
-    {/* the comment options */}
-    <div className="w-full flex pt-2 gap-5 items-center">
+    <div className="w-full flex flex-col gap-7 pt-9">
 
-    <div className="flex items-center gap-1 cursor-pointer">
-    <BiLike className="w-5 h-5"/>
-    <p className="text-[#454545] text-sm">12</p>
-    </div>
+    {/* THE COMMENT CONTAINER */}
 
-    <div className="flex items-center gap-1 cursor-pointer">
-    <BiDislike className="w-5 h-5"/>
-    <p className="text-[#454545] text-sm">12</p>
-    </div>
-
-    <div className="flex items-center gap-1 cursor-pointer">
-    <BiMessage className="w-5 h-5"/>
-    <p className="text-[#454545] text-sm">34</p>
-    </div>
-
-    </div>
-    </div>
-    </div>
-    </div>
-
-    {/* the comment div */}
-    <div className="w-full">
-    {/* the user info */}
-    <div className="flex gap-2">
-    <div className="flex-shrink-0 ">
-    <img src={assets.banner_icon} className="w-[35px] h-[35px] rounded-full object-cover"/>
-    </div>
-    <div>
-    <h2 className="font-[rubik-semibold]">Twesigye fahad</h2>
-    <p className="font-[rubik-light] text-sm">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam sapiente consectetur voluptatem minima minus nam distinctio quo in, recusandae iusto, cumque nemo quasi adipisci molestiae accusamus quas quis libero. Optio.</p>
-    {/* the comment options */}
-    <div className="w-full flex pt-2 gap-5 items-center">
-
-    <div className="flex items-center gap-1 cursor-pointer">
-    <BiLike className="w-5 h-5"/>
-    <p className="text-[#454545] text-sm">12</p>
-    </div>
-
-    <div className="flex items-center gap-1 cursor-pointer">
-    <BiDislike className="w-5 h-5"/>
-    <p className="text-[#454545] text-sm">12</p>
-    </div>
-
-    <div className="flex items-center gap-1 cursor-pointer">
-    <BiMessage className="w-5 h-5"/>
-    <p className="text-[#454545] text-sm">12</p>
-    </div>
-
-    </div>
-    </div>
-    </div>
-    </div>
+    {/* END OF THE COMMENT CONTAINER */}
 
     </div>
     </div>

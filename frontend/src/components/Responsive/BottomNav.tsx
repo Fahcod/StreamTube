@@ -1,11 +1,11 @@
-import { BiPlusCircle, BiSolidVideos } from "react-icons/bi";
-import { FaClock, FaHouse, FaUser } from "react-icons/fa6";
+import { BiPlayCircle, BiPlusCircle } from "react-icons/bi";
+import { FaHouse, FaRegClock, FaRegUser } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 
 const BottomNav = () => {
   return (
-    <div className="w-full flex dark:bg-[#101010] px-2 items-center justify-between md:hidden bg-white fixed bottom-0 h-[60px] border-solid border-t-[1px] dark:border-[#333] border-gray-200">
+    <div className="w-full flex px-2 items-center justify-between md:hidden bg-white fixed bottom-0 h-[60px] border-solid border-t-[1px] border-gray-200">
     
     <Link to="/home">
     <div className="flex flex-col items-center gap-0.5">
@@ -15,26 +15,28 @@ const BottomNav = () => {
     </Link>
 
     <div className="flex flex-col items-center gap-0.5">
-    <BiSolidVideos className="w-6.5 h-6.5 dark:text-[#e9e9e9] text-[#333232]"/>
-    <p className="font-[roboto-light] text-[#101010] dark:text-[#e9e9e9] text-xs">Reels</p>
+    <BiPlayCircle className="w-7 h-7 text-[#333232]"/>
+    <p className="font-[roboto-light] text-[#101010] text-xs">Reels</p>
     </div>
 
+    <Link to="/create">
     <div className="flex flex-col items-center gap-0.5">
-    <BiPlusCircle className="w-7 h-7 text-[#333232] dark:text-[#e9e9e9]"/>
-    <p className="font-[roboto-light] text-[#101010] dark:text-[#e9e9e9] text-xs">Create</p>
+    <BiPlusCircle className="w-7 h-7 text-[#333232]"/>
+    <p className="font-[roboto-light] text-[#101010] text-xs">Create</p>
     </div>
+    </Link>
 
     <Link to="/watched">
     <div className="flex flex-col items-center gap-0.5">
-    <FaClock className="w-5.5 h-5.5 text-[#333232] dark:text-[#e9e9e9]"/>
-    <p className="font-[roboto-light] text-[#101010] dark:text-[#e9e9e9] text-xs">Watched</p>
+    <FaRegClock className="w-5.5 h-5.5 text-[#333232]"/>
+    <p className="font-[roboto-light] text-[#101010] text-xs">Watched</p>
     </div>
     </Link>
     
     <Link to="/profile">
     <div className="flex flex-col items-center gap-0.5">
-    <FaUser className="w-5.5 h-5.5 text-[#333232] dark:text-[#e9e9e9]"/>
-    <p className="font-[roboto-light] text-[#101010] dark:text-[#e9e9e9] text-xs">Profile</p>
+    <FaRegUser className="w-5.5 h-5.5 text-[#333232]"/>
+    <p className="font-[roboto-light] text-[#101010] text-xs">Profile</p>
     </div>
     </Link>
 
