@@ -53,7 +53,7 @@ const ReelUploadForm = () =>{
   // upload the video first
   fileData.append("file",videoURL);
 
-  let responseOne = await axiosInstance.post('/api/v1/files/upload',fileData);
+  let responseOne = await axiosInstance.post('/api/v1/files/upload-video',fileData);
   if(responseOne.status === 201){
     // upload the post data now
     const dataObject = {
@@ -157,7 +157,7 @@ const VideoUploadForm = () =>{
   // upload the video first
   fileData.append("file",videoURL);
 
-  let responseOne = await axiosInstance.post('/api/v1/files/upload',fileData);
+  let responseOne = await axiosInstance.post('/api/v1/files/upload-video',fileData);
   if(responseOne.status === 201){
     // upload the post data now
     const dataObject = {
