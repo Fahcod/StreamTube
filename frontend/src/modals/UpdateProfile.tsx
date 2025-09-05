@@ -30,7 +30,7 @@ const UpdateProfile = () => {
     let formData = new FormData();
     formData.append("file",imageFile);
     // uploadin the image file and if successfull,send the data
-    let responseOne = await axiosInstance.post('/api/v1/files/upload',formData)
+    let responseOne = await axiosInstance.post('/api/v1/files/upload-image',formData)
     if(responseOne.status === 201){
     // create the dataObject
     const dataObject = {
