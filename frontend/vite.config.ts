@@ -14,26 +14,26 @@ const manifest:any ={
       
       {
         src: "/logo.png",
-        sizes: "55x55",
+        sizes: "135x135",
         type: "image/png",
         purpose:'icon',
       },
       
       {
         src: '/logo.png',
-        sizes:'55x55',
+        sizes:'85x85',
         type:'image/png',
         purpose:'apple touch icon',
       },
       {
         src: '/logo.png',
-        sizes:'55x55',
+        sizes:'65x5',
         type:'image/png',
         purpose:'maskable',
       },
     ],
-    theme_color: "#000",
-    background_color: "#fff",
+    theme_color: "#ffffff",
+    background_color: "#ffffff",
     display: "standalone",
     scope: "/",
     start_url: "/",
