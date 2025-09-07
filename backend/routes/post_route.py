@@ -47,6 +47,9 @@ def fetch_posts():
     try:
         # the aggregation pipeline
         pipeline = [
+
+            # sort the posts and get the latest first
+            {"$sort": {"createdAt": -1}},
             
             {
                 "$lookup":{
